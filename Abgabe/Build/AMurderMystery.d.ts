@@ -4,6 +4,7 @@ declare namespace AMurderMystery {
     function AnimationCenterToCenter(): ƒS.AnimationDefinition;
     function AnimationCenterToLeft(): ƒS.AnimationDefinition;
     function AnimationLeftToCenter(): ƒS.AnimationDefinition;
+    function AnimationLeveToRight(): ƒS.AnimationDefinition;
 }
 declare namespace AMurderMystery {
     export import ƒ = FudgeCore;
@@ -12,10 +13,13 @@ declare namespace AMurderMystery {
         nameProtagonist: string;
         pointsAsh: number;
         pointsOfficer: number;
+        chosenBook: string;
         bookWeapon: string;
         bookCrimeScene: string;
         bookWitness: string;
         bookMotive: string;
+        ending: string;
+        bonusScene: boolean;
     };
     let transition: {
         transition1: {
@@ -50,7 +54,6 @@ declare namespace AMurderMystery {
         };
     };
     let sound: {
-        clock: string;
         crowdTalking1: string;
         crowdTalking2: string;
         computer: string;
@@ -62,6 +65,7 @@ declare namespace AMurderMystery {
         texting: string;
         traffic: string;
         wind: string;
+        clock: string;
     };
     let locations: {
         Office: {
@@ -81,6 +85,10 @@ declare namespace AMurderMystery {
             background: string;
         };
         TowerOfLondon: {
+            name: string;
+            background: string;
+        };
+        Phone: {
             name: string;
             background: string;
         };
@@ -110,6 +118,20 @@ declare namespace AMurderMystery {
             };
         };
     };
+    let items: {
+        pageVampire: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+        pageRitual: {
+            name: string;
+            description: string;
+            image: string;
+            static: boolean;
+        };
+    };
     function showCredits(): void;
 }
 declare namespace AMurderMystery {
@@ -128,12 +150,16 @@ declare namespace AMurderMystery {
     function hndKeyPress(_event: KeyboardEvent): Promise<any>;
 }
 declare namespace AMurderMystery {
+    function SceneBonus(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
 }
 declare namespace AMurderMystery {
 }
 declare namespace AMurderMystery {
+}
+declare namespace AMurderMystery {
+    function Intro(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
     function Scene1(): ƒS.SceneReturn;
@@ -144,8 +170,13 @@ declare namespace AMurderMystery {
     function Scene2(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene2_2(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene3(): ƒS.SceneReturn;
+}
+declare namespace AMurderMystery {
+    function Scene4(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
 }

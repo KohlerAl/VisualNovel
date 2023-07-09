@@ -1,4 +1,19 @@
+@font-face {
+  font-family: pixel;
+  src: url(font/Pixelfont.ttf);
+}
+
+/* CSS HEX */
+/* --cadet-gray: #8EA2B7ff;
+--pale-dogwood: #E4CBCCff;
+--ecru: ##CF655Cff;
+--black-bean: #431C19ff;
+--paynes-gray: #5E718Dff;
+--black: #050403ff; */
+
+
 html, body {
+  font-family: pixel;
   width: 100vw;
   height: 100vh;
   margin: 0px;
@@ -27,11 +42,11 @@ canvas {
 
 /***** SPLASH SCREEN *****/
 dialog[type="splash"] {
-  background-image: url("Images/totoro.png");
   /* background-repeat: repeat; */
   /* background-size: contain; */
   width: 100%;
   height: 100%;
+  background-color: #111;
 }
 
 dialog[type="splash"] > p {
@@ -50,25 +65,48 @@ dialog[type="splash"] > p {
 
 /***** SPEECH, CONTENT, NAMES *****/
 speech {
+  font-family: pixel;
   position: absolute;
   bottom: 0px;
   left: 0px;
   color: beige;
-  background-color: rgba(57, 16, 24, 0.9);
+  background-color: #5e718d;
   width: 100%;
   height: 13%;
+  padding: 10px;
 }
 
 speech content {
-  color: rgb(255, 203, 237);
-  font-size: 1.7vmin;
+  color: #fff;
+  font-size: 2.5vmin;
   position: absolute;
   left: 10px;
+  margin-right: 10px;
 }
 
 name {
-  font-size: 2vmin;
+  font-size: 3vmin;
   display: block;
-  color: rgb(218, 69, 171);
+  color: #e69ea1;
   margin-bottom: 10px;
+}
+
+amount {
+  display: none
+}
+
+#Ritual_Novel_Notes img,
+#Vampire_Novel_Notes img{
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0; 
+  margin: 0;
+}
+
+dialog[type='inventory'] button {
+  margin-bottom: 20px;
 }

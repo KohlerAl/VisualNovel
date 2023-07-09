@@ -6,10 +6,13 @@ namespace AMurderMystery {
     nameProtagonist: "",
     pointsAsh: 0,
     pointsOfficer: 0,
+    chosenBook: "",
     bookWeapon: "",
     bookCrimeScene: "",
     bookWitness: "",
-    bookMotive: ""
+    bookMotive: "", 
+    ending: "", 
+    bonusScene: false
   };
   console.log("FudgeStory template starting");
 
@@ -47,7 +50,6 @@ namespace AMurderMystery {
   };
 
   export let sound = {
-    clock: "Sounds/clock.mp3",
     crowdTalking1: "Sounds/crowd-talking-1.mp3",
     crowdTalking2: "Sounds/crowd-talking-2.mp3",
     computer: "Sounds/keyboard_computer.mp3",
@@ -58,7 +60,8 @@ namespace AMurderMystery {
     telephoneRing: "Sounds/telephone-ring-04.mp3",
     texting: "Sounds/texting.wav",
     traffic: "Sounds/traffic.mp3",
-    wind: "Sounds/wind.mp3"
+    wind: "Sounds/wind.mp3",
+    clock: "Sounds/clock.mp3"
   };
 
   export let locations = {
@@ -82,6 +85,10 @@ namespace AMurderMystery {
     TowerOfLondon: {
       name: "TowerOfLondon",
       background: "Images/Backgrounds/TowerOfLondon.png"
+    }, 
+    Phone: {
+      name: "Phone", 
+      background: "Images/Backgrounds/Phone.png"
     }
 
   };
@@ -112,6 +119,21 @@ namespace AMurderMystery {
     }
   };
 
+  export let items = {
+    pageVampire: {
+      name: "Vampire Novel Notes", 
+      description: "Notes about the Vampire Novel to answer the officers questions", 
+      image: "Images/Items/VampirePage.png",
+      static: true
+    }, 
+    pageRitual: {
+      name: "Ritual Novel Notes", 
+      description: "Notes about the Ritual Novel to answer the officers questions", 
+      image: "Images/Items/RitualPage.png",
+      static: true
+    }
+  }
+
   //Credits anzeigen
   export function showCredits(): void {
     ƒS.Text.addClass("credits");
@@ -135,11 +157,17 @@ namespace AMurderMystery {
 
     //Menu
     gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
+    gameMenu.close(); 
 
+    ƒS.Speech.hide(); 
     //Szenen aufrufen bezogen auf die .TS Datei
     let scenes: ƒS.Scenes = [
-      { id:"scene1",scene: Scene1, name: "Scene1" },
-      { id:"scene2",scene: Scene1, name: "Scene1" },
+      /* { id:"scene1",scene: Scene1, name: "Scene1" },
+      { id:"scene2",scene: Scene2, name: "Scene2" },
+      { id:"scene2_2",scene: Scene2_2, name: "Scene2_2" }, */
+      /* { id:"scene3",scene: Scene3, name: "Scene3" },
+      { id:"scene4",scene: Scene4, name: "Scene4" }, */
+      { id:"sceneBonus",scene: SceneBonus, name: "SceneBonus" },
 
     ];
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

@@ -4,38 +4,53 @@ namespace AMurderMystery {
 
         let text = {
             protagonist: {
-                T00: "Hmmm… Also als Erstes brauche ich eine Mordwaffe, damit ich weiß, was am Tatort sein muss.", 
-                T01: "Okay, als Nächstes sollte ich festlegen, wo der Mord stattfindet", 
+                T00: "Hmmm… Also als Erstes brauche ich eine Mordwaffe, damit ich weiß, was am Tatort sein muss.",
+                T01: "Okay, als Nächstes sollte ich festlegen, wo der Mord stattfindet",
                 T02: "Das … das ist doch der Mord aus meinem Buch? Jemand stellt einen Mord aus meinem Buch dar? Vielleicht sollte ich Ash schreiben?"
             },
             murderWeaponChoice: {
-                knive: "Messer", 
+                knive: "Messer",
                 rope: "Seil"
-            }, 
+            },
             crimeSceneChoice: {
-                bigBen: "Big Ben", 
+                bigBen: "Big Ben",
                 tower: "Tower of London"
-            }, 
-            notification: {
-                vampire: "Im Londoner Hide Park wurde die Leiche einer jungen Frau gefunden. Die Kehle des Opfers weist Bissspuren auf. Das Opfer lag auf einem Bett aus Rosen. Die Polizei bittet die Bevölkerung um Hinweise.",
-                ritual: "Im Londoner Hide Park wurde die Leiche einer jungen Frau gefunden. Der Tatort weist Spuren eines rituellen oder religiösen Motivs auf. Die Polizei bittet die Bevölkerung um Hinweise."
-            }, 
-            choiceTextAsh: {
-                yes: "Ja", 
-                no: "Nein"
-            },
-            textToAsh: {
-                neutral: "Ich habe gerade die Nachrichten gesehen, und jemand hat eins meiner Bücher nachgestellt, nachdem wir gestern noch darüber geredet haben. Was für ein komischer Zufall, oder?",
-                friendly: "Ich habe gerade in den Nachrichten gesehen, dass jemand einen meiner Morde nachstellt. Wer würde denn so etwas machen?",
-                accusing: "Wir haben doch gestern noch über mein Lieblingsbuch geredet und heute wird genau dieser Mord nachgestellt? Das kann doch kein Zufall sein. Hast du etwas damit zu tun?"
-            },
-            ashAnswers: {
-                neutralAnswer: "Ich habs auch grade gesehen. Wirklich ein komischer Zufall.",
-                friendlyAnswer: "Ich weiß es nicht. Aber ich bin mir sicher, die Polizei wird sich darum kümmern und den Mörder finden."
             }
+            
         }
+
+        await ƒS.Location.show(locations.Office);
+        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
+        await ƒS.update(1);
+
+        await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
+
+        let firstChoice = await ƒS.Menu.getInput(text.murderWeaponChoice, "option");
+        switch (firstChoice) {
+            case text.murderWeaponChoice.knive:
+                dataForSave.bookWeapon = text.murderWeaponChoice.knive;
+                break;
+
+            case text.murderWeaponChoice.rope:
+                dataForSave.bookWeapon = text.murderWeaponChoice.rope;
+                break;
+        }
+
+        await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01);
+
+        let secondChoice = await ƒS.Menu.getInput(text.crimeSceneChoice, "option");
+        switch (secondChoice) {
+            case text.crimeSceneChoice.bigBen:
+                dataForSave.bookCrimeScene = text.crimeSceneChoice.bigBen;
+                break;
+            case text.crimeSceneChoice.tower:
+                dataForSave.bookCrimeScene = text.crimeSceneChoice.tower;
+                break;
+        }
+
     }
 }
+
 
 
 /* export async function Scene2(): ƒS.SceneReturn {
