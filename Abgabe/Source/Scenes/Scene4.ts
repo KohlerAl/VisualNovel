@@ -47,11 +47,15 @@ namespace AMurderMystery {
                 T01: "Nein"
             }
         }
-
+        
+        ƒS.Sound.fade(sound.crowdTalking2, 20, 50, true);
+        ƒS.Sound.fade(sound.computer, 20, 50, true);
+        ƒS.Sound.fade(sound.pencil, 20, 30, true); 
+        characters.Protagonist.name = dataForSave.nameProtagonist; 
         await ƒS.Location.show(locations.PoliceStation);
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
         await ƒS.Character.show(characters.Officer, characters.Officer.pose.neutral, ƒS.positionPercent(80, 100));
-        await ƒS.update();
+        await ƒS.update(transition.transition2.duration, transition.transition2.alpha, transition.transition2.edge);
 
         await ƒS.Speech.tell(characters.Officer, text.officer.T00);
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
@@ -130,5 +134,8 @@ namespace AMurderMystery {
         }
 
         await ƒS.Character.hide(characters.Officer); 
+        ƒS.Sound.fade(sound.crowdTalking2, 50, 0, true);
+        ƒS.Sound.fade(sound.computer, 50, 0, true);
+        ƒS.Sound.fade(sound.pencil, 30, 0, true); 
     }
 }

@@ -15,7 +15,8 @@ namespace AMurderMystery {
                 T03: "Ich denke, ich geh jetzt besser. "
             }
         }
-
+        
+        characters.Protagonist.name = dataForSave.nameProtagonist; 
         await ƒS.Location.show(locations.Office); 
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100)); 
         await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100)); 

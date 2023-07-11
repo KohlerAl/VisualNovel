@@ -15,7 +15,7 @@
   <scene>
 
     <dialog type="splash" open>
-      <img id="FudgeStoryLogo" theme="dark" /> <!-- use "light" or "dark" -->
+      <img id="FudgeStoryLogo" theme="light" /> <!-- use "light" or "dark" -->
       <p>
         A Murder Mystery
       </p>
@@ -38,8 +38,16 @@
       <ul>
       </ul>
     </dialog>
-    <interface>
+    <div id="meter" type="interface">
+      <input id="scoreForAsh" type="text" value="Ash" disabled>
+      <meter id="ashMeter" name="pointsAsh" min="-300" max="300" value="0"></meter>
+
       
+      <input id="scoreforOfficer" type="text" value="Officer" disabled>
+      <meter id="officerMeter" name="pointsOfficer" min="-300" max="300" value="0"></meter>
+    </div>
+    <interface>
+
     </interface>
 
   </scene>

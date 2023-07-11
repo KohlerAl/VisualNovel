@@ -20,11 +20,13 @@ namespace AMurderMystery {
         }
 
         await ƒS.Location.show(locations.Office);
+        characters.Protagonist.name = dataForSave.nameProtagonist; 
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
-        await ƒS.update(1);
+        await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
+        ƒS.Sound.fade(sound.laptop, 10, 800, true);
         let firstChoice = await ƒS.Menu.getInput(text.murderWeaponChoice, "option");
         switch (firstChoice) {
             case text.murderWeaponChoice.knive:
@@ -35,7 +37,7 @@ namespace AMurderMystery {
                 dataForSave.bookWeapon = text.murderWeaponChoice.rope;
                 break;
         }
-
+        
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01);
 
         let secondChoice = await ƒS.Menu.getInput(text.crimeSceneChoice, "option");
@@ -47,7 +49,7 @@ namespace AMurderMystery {
                 dataForSave.bookCrimeScene = text.crimeSceneChoice.tower;
                 break;
         }
-
+        ƒS.Sound.fade(sound.laptop, 800, 0, true);
     }
 }
 

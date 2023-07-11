@@ -8,10 +8,11 @@ namespace AMurderMystery {
                 T02: "Das sollten alle sein. Dann auf zur Polizeistation."
             }
         }
-
+        
+        characters.Protagonist.name = dataForSave.nameProtagonist;  
         await ƒS.Location.show(locations.Office); 
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100)); 
-        await ƒS.update(1);
+        await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00); 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01); 
@@ -23,5 +24,7 @@ namespace AMurderMystery {
         await ƒS.update(); 
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02); 
+
+        
     }
 }

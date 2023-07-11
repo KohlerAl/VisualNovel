@@ -11,35 +11,39 @@ namespace AMurderMystery {
     bookCrimeScene: "",
     bookWitness: "",
     bookMotive: "", 
-    ending: "", 
-    bonusScene: false
+    ending1: false,
+    ending2: false, 
+    ending3: false, 
+    ending4: false, 
+    bonusScene: false,
+    staywithAsh: false
   };
   console.log("FudgeStory template starting");
 
   export let transition = {
     transition1: {
       duration: 1,   //duration in seconds
-      alpha: "Images/Transitions/t1.png",      //path to image
+      alpha: "Images/Transitions/t1.jpg",      //path to image
       edge: 1       //hardness of transition
     },
     transition2: {
       duration: 1,
-      alpha: "Images/Transitions/t2.png",
+      alpha: "Images/Transitions/t2.jpg",
       edge: 1
     },
     transition3: {
       duration: 1,
-      alpha: "Images/Transitions/t3.png",
+      alpha: "Images/Transitions/t3.jpg",
       edge: 1
     },
     transition4: {
       duration: 1,
-      alpha: "Images/Transitions/t4.png",
+      alpha: "Images/Transitions/t4.jpg",
       edge: 1
     },
     transition5: {
       duration: 1,
-      alpha: "Images/Transitions/t5.png",
+      alpha: "Images/Transitions/t5.jpg",
       edge: 1
     },
     transition6: {
@@ -80,7 +84,7 @@ namespace AMurderMystery {
     },
     PoliceStation: {
       name: "PoliceStation",
-      background: "Images/Backgrounds/PoliceStation.png"
+      background: "Images/Backgrounds/Police.png"
     },
     TowerOfLondon: {
       name: "TowerOfLondon",
@@ -154,7 +158,8 @@ namespace AMurderMystery {
   window.addEventListener("load", start);
   function start(_event: Event): void {
     console.log(2);
-
+    let meterBar: HTMLDivElement = document.querySelector("#meter");
+    meterBar.style.display = "initial"; 
     //Menu
     gameMenu = ƒS.Menu.create(inGameMenu, buttonFunctionalities, "gameMenu");
     gameMenu.close(); 
@@ -162,12 +167,19 @@ namespace AMurderMystery {
     ƒS.Speech.hide(); 
     //Szenen aufrufen bezogen auf die .TS Datei
     let scenes: ƒS.Scenes = [
-      /* { id:"scene1",scene: Scene1, name: "Scene1" },
-      { id:"scene2",scene: Scene2, name: "Scene2" },
-      { id:"scene2_2",scene: Scene2_2, name: "Scene2_2" }, */
-      /* { id:"scene3",scene: Scene3, name: "Scene3" },
-      { id:"scene4",scene: Scene4, name: "Scene4" }, */
-      { id:"sceneBonus",scene: SceneBonus, name: "SceneBonus" },
+      /* { id:"scene1",scene: Scene1, name: "Scene1" }, */
+      /* { id:"scene2",scene: Scene2, name: "Scene2" }, */
+      { id:"scene2_2",scene: Scene2_2, name: "Scene2_2" },
+      { id:"scene3",scene: Scene3, name: "Scene3" },
+      { id:"scene4",scene: Scene4, name: "Scene4" },
+      { id:"sceneBonus",scene: SceneBonus, name: "SceneBonus" }, 
+      { id:"scene5",scene: Scene5, name: "Scene5" },
+      { id:"scene6",scene: Scene6, name: "Scene6" },
+      { id:"scene7",scene: Scene7, name: "Scene7" },
+      { id:"scene8",scene: Scene8, name: "Scene8"},
+      { id:"scene9",scene: Scene9, name: "Scene9"},
+      { id:"endings",scene: Endings, name: "Endings"},
+      { id:"empty",scene: Empty, name: "Empty"},
 
     ];
     let uiElement: HTMLElement = document.querySelector("[type=interface]");

@@ -48,7 +48,7 @@ namespace AMurderMystery {
         await ƒS.Location.show(locations.LivingRoom);
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
         await ƒS.Character.show(characters.Ash, characters.Ash.pose.happy, ƒS.positionPercent(80, 100));
-        await ƒS.update(1);
+        await ƒS.update(transition.transition2.duration, transition.transition2.alpha, transition.transition3.edge);
 
         ƒS.Speech.show();
 

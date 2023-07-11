@@ -1,10 +1,8 @@
 declare namespace AMurderMystery {
-    function AnimationLeftToRight(): ƒS.AnimationDefinition;
-    function AnimationLeftBorderToLeft(): ƒS.AnimationDefinition;
-    function AnimationCenterToCenter(): ƒS.AnimationDefinition;
-    function AnimationCenterToLeft(): ƒS.AnimationDefinition;
-    function AnimationLeftToCenter(): ƒS.AnimationDefinition;
     function AnimationLeveToRight(): ƒS.AnimationDefinition;
+    function AnimationRightToComputer(): ƒS.AnimationDefinition;
+    function AnimationComputerToRight(): ƒS.AnimationDefinition;
+    function AnimationProtagonistLeave(): ƒS.AnimationDefinition;
 }
 declare namespace AMurderMystery {
     export import ƒ = FudgeCore;
@@ -18,8 +16,12 @@ declare namespace AMurderMystery {
         bookCrimeScene: string;
         bookWitness: string;
         bookMotive: string;
-        ending: string;
+        ending1: boolean;
+        ending2: boolean;
+        ending3: boolean;
+        ending4: boolean;
         bonusScene: boolean;
+        staywithAsh: boolean;
     };
     let transition: {
         transition1: {
@@ -153,18 +155,13 @@ declare namespace AMurderMystery {
     function SceneBonus(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Empty(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
-}
-declare namespace AMurderMystery {
-}
-declare namespace AMurderMystery {
-    function Intro(): ƒS.SceneReturn;
+    function Endings(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
     function Scene1(): ƒS.SceneReturn;
-}
-declare namespace AMurderMystery {
 }
 declare namespace AMurderMystery {
     function Scene2(): ƒS.SceneReturn;
@@ -179,12 +176,17 @@ declare namespace AMurderMystery {
     function Scene4(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene5(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene6(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene7(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene8(): ƒS.SceneReturn;
 }
 declare namespace AMurderMystery {
+    function Scene9(): ƒS.SceneReturn;
 }

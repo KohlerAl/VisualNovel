@@ -28,10 +28,12 @@ namespace AMurderMystery {
         }
 
 
+        characters.Protagonist.name = dataForSave.nameProtagonist; 
+        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100)); 
         await ƒS.Location.show(locations.Phone);
-        await ƒS.Character.hide(characters.Protagonist);
-        await ƒS.update(1);
+        await ƒS.update(transition.transition1.duration, transition.transition1.alpha, transition.transition1.edge);
 
+        ƒS.Sound.fade(sound.telephoneRing, 80, 0, true);
         switch (dataForSave.chosenBook) {
             case "Vampire":
                 await ƒS.Speech.tell("Phone", text.notification.vampire);
@@ -45,8 +47,11 @@ namespace AMurderMystery {
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
 
-
+        ƒS.Sound.fade(sound.texting, 400, 400, true);
         let thirdChoice = await ƒS.Menu.getInput(text.choiceTextAsh, "option");
+        await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100)); 
+        await ƒS.update();
+        
         switch (thirdChoice) {
             case text.choiceTextAsh.yes:
                 let fourthChoice = await ƒS.Menu.getInput(text.textToAsh, "bigOption");
@@ -66,6 +71,7 @@ namespace AMurderMystery {
                     case text.textToAsh.accusing:
                         await ƒS.Speech.tell(characters.Protagonist, text.textToAsh.accusing);
                         await ƒS.Speech.tell(characters.Ash, text.ashAnswers.accusingAnswer);
+                        dataForSave.pointsAsh -= 100;
                         break;
                 }
 
@@ -74,7 +80,8 @@ namespace AMurderMystery {
             case text.choiceTextAsh.no:
                 break;
         }
-
+        ƒS.Sound.fade(sound.texting, 400, 0, true);
         console.log(dataForSave.pointsAsh); 
+        ƒS.Character.hide(characters.Ash)
     }
 }
