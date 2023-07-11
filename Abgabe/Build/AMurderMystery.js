@@ -523,7 +523,7 @@ var AMurderMystery;
         await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.happy, AMurderMystery.ƒS.positionPercent(10, 100));
         await AMurderMystery.ƒS.update(AMurderMystery.transition.transition6.duration, AMurderMystery.transition.transition6.alpha, AMurderMystery.transition.transition6.edge);
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 10, 800, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 10, 20, true);
         let firstChoice = await AMurderMystery.ƒS.Menu.getInput(text.murderWeaponChoice, "option");
         switch (firstChoice) {
             case text.murderWeaponChoice.knive:
@@ -543,7 +543,7 @@ var AMurderMystery;
                 AMurderMystery.dataForSave.bookCrimeScene = text.crimeSceneChoice.tower;
                 break;
         }
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 800, 0, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 20, 0, true);
     }
     AMurderMystery.Scene2 = Scene2;
 })(AMurderMystery || (AMurderMystery = {}));
@@ -590,7 +590,7 @@ var AMurderMystery;
         await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.neutral, AMurderMystery.ƒS.positionPercent(10, 100));
         await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.Phone);
         await AMurderMystery.ƒS.update(AMurderMystery.transition.transition1.duration, AMurderMystery.transition.transition1.alpha, AMurderMystery.transition.transition1.edge);
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.telephoneRing, 80, 0, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.smartphoneRing, 20, 10, false);
         switch (AMurderMystery.dataForSave.chosenBook) {
             case "Vampire":
                 await AMurderMystery.ƒS.Speech.tell("Phone", text.notification.vampire);
@@ -600,7 +600,7 @@ var AMurderMystery;
                 break;
         }
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 400, 400, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 10, 10, true);
         let thirdChoice = await AMurderMystery.ƒS.Menu.getInput(text.choiceTextAsh, "option");
         await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
         await AMurderMystery.ƒS.update();
@@ -628,7 +628,7 @@ var AMurderMystery;
             case text.choiceTextAsh.no:
                 break;
         }
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 400, 0, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 0, 2, false);
         console.log(AMurderMystery.dataForSave.pointsAsh);
         AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
     }
@@ -973,6 +973,9 @@ var AMurderMystery;
                 no: "Nein"
             }
         };
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.crowdTalking2, 20, 50, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.computer, 20, 50, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.pencil, 20, 30, true);
         AMurderMystery.characters.Protagonist.name = AMurderMystery.dataForSave.nameProtagonist;
         await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.PoliceStation);
         await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.neutral, AMurderMystery.ƒS.positionPercent(10, 100));
@@ -1003,6 +1006,9 @@ var AMurderMystery;
                 break;
         }
         await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Officer);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.crowdTalking2, 50, 0, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.computer, 50, 0, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.pencil, 30, 0, true);
     }
     AMurderMystery.Scene7 = Scene7;
 })(AMurderMystery || (AMurderMystery = {}));
@@ -1032,6 +1038,7 @@ var AMurderMystery;
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T01);
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T02);
+            AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 400, 400, true);
             await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.Phone);
             await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
             await AMurderMystery.ƒS.update();
@@ -1042,6 +1049,7 @@ var AMurderMystery;
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T04);
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T05);
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T06);
+            AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 400, 0, true);
         }
     }
     AMurderMystery.Scene8 = Scene8;
@@ -1105,6 +1113,7 @@ var AMurderMystery;
             let confrontAsh = await AMurderMystery.ƒS.Menu.getInput(text.confrontAsh, "option");
             switch (confrontAsh) {
                 case text.confrontAsh.yes:
+                    AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.clock, 0, 30, true);
                     await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.LivingRoom);
                     await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
                     await AMurderMystery.ƒS.update();
@@ -1115,8 +1124,10 @@ var AMurderMystery;
                     await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T04);
                     await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T002);
                     await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T06);
+                    AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.clock, 30, 0, true);
                     break;
                 case text.confrontAsh.no:
+                    AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.streetAmbiance, 0, 40, true);
                     switch (AMurderMystery.dataForSave.bookCrimeScene) {
                         case "Big Ben":
                             await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.BigBen);
@@ -1136,6 +1147,7 @@ var AMurderMystery;
                     await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T10);
                     await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T05);
                     await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T11);
+                    AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.streetAmbiance, 40, 0, true);
                     break;
             }
             await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T12);

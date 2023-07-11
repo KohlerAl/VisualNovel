@@ -64,6 +64,7 @@ namespace AMurderMystery {
             let confrontAsh = await ƒS.Menu.getInput(text.confrontAsh, "option");
             switch (confrontAsh) {
                 case text.confrontAsh.yes:
+                    ƒS.Sound.fade(sound.clock, 0, 30, true);
                     await ƒS.Location.show(locations.LivingRoom);
                     await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100))
                     await ƒS.update();
@@ -75,9 +76,12 @@ namespace AMurderMystery {
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T04);
                     await ƒS.Speech.tell(characters.Ash, text.ash.T002);
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T06);
-                    break;
+
+                    ƒS.Sound.fade(sound.clock, 30, 0, true);
+                    break;  
 
                 case text.confrontAsh.no:
+                    ƒS.Sound.fade(sound.streetAmbiance, 0, 40, true);
                     switch (dataForSave.bookCrimeScene) {
                         case "Big Ben":
                             await ƒS.Location.show(locations.BigBen);
@@ -100,6 +104,7 @@ namespace AMurderMystery {
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T10);
                     await ƒS.Speech.tell(characters.Ash, text.ash.T05);
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T11);
+                    ƒS.Sound.fade(sound.streetAmbiance, 40, 0, true);
                     break;
             }
 

@@ -33,7 +33,7 @@ namespace AMurderMystery {
         await ƒS.Location.show(locations.Phone);
         await ƒS.update(transition.transition1.duration, transition.transition1.alpha, transition.transition1.edge);
 
-        ƒS.Sound.fade(sound.telephoneRing, 80, 0, true);
+        ƒS.Sound.fade(sound.smartphoneRing, 20, 10, false);
         switch (dataForSave.chosenBook) {
             case "Vampire":
                 await ƒS.Speech.tell("Phone", text.notification.vampire);
@@ -47,7 +47,7 @@ namespace AMurderMystery {
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
 
-        ƒS.Sound.fade(sound.texting, 400, 400, true);
+        ƒS.Sound.fade(sound.texting, 10, 10, true);
         let thirdChoice = await ƒS.Menu.getInput(text.choiceTextAsh, "option");
         await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100)); 
         await ƒS.update();
@@ -80,7 +80,7 @@ namespace AMurderMystery {
             case text.choiceTextAsh.no:
                 break;
         }
-        ƒS.Sound.fade(sound.texting, 400, 0, true);
+        ƒS.Sound.fade(sound.texting, 0, 2, false);
         console.log(dataForSave.pointsAsh); 
         ƒS.Character.hide(characters.Ash)
     }
