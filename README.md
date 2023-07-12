@@ -18,3 +18,4 @@ Quellcode:
 https://github.com/KohlerAl/VisualNovel/tree/main/Abgabe/Source
 
 Gepacktes Archiv: 
+https://kohleral.github.io/VisualNovel/Kohler_Alida_A_Murder_Mystery.zip
