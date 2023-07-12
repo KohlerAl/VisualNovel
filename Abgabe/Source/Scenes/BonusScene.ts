@@ -15,27 +15,31 @@ namespace AMurderMystery {
                 T03: "Ich denke, ich geh jetzt besser. "
             }
         }
-        
-        characters.Protagonist.name = dataForSave.nameProtagonist; 
-        await ƒS.Location.show(locations.Office); 
-        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100)); 
-        await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100)); 
-        await ƒS.update();
 
-        await ƒS.Speech.tell(characters.Ash, text.ash.T00); 
-        await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00); 
-        await ƒS.Speech.tell(characters.Ash, text.ash.T01); 
-        await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01); 
-        await ƒS.Speech.tell(characters.Ash, text.ash.T02); 
-        await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02); 
-        await ƒS.Speech.tell(characters.Ash, text.ash.T03); 
+        if (dataForSave.bonusScene) {
+            characters.Protagonist.name = dataForSave.nameProtagonist;
+            await ƒS.Location.show(locations.Office);
+            await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100));
+            await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100));
+            await ƒS.update();
 
-        await ƒS.Character.hide(characters.Ash); 
-        await ƒS.Character.animate(characters.Ash, characters.Ash.pose.neutral, AnimationLeveToRight()); 
+            await ƒS.Speech.tell(characters.Ash, text.ash.T00);
+            await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
+            await ƒS.Speech.tell(characters.Ash, text.ash.T01);
+            await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01);
+            await ƒS.Speech.tell(characters.Ash, text.ash.T02);
+            await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02);
+            await ƒS.Speech.tell(characters.Ash, text.ash.T03);
 
-        
-        await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T03); 
+            await ƒS.Character.hide(characters.Ash);
+            await ƒS.Character.animate(characters.Ash, characters.Ash.pose.neutral, AnimationLeveToRight());
 
-        dataForSave.pointsAsh -= 100; 
+
+            await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T03);
+
+            dataForSave.pointsAsh -= 100;
+            await ƒS.Character.hide(characters.Protagonist);
+            await ƒS.update();
+        }
     }
 }

@@ -11,7 +11,7 @@ namespace AMurderMystery {
         
         characters.Protagonist.name = dataForSave.nameProtagonist;  
         await ƒS.Location.show(locations.Office); 
-        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100)); 
+        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100)); 
         await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00); 
@@ -25,6 +25,7 @@ namespace AMurderMystery {
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02); 
 
-        
+        await ƒS.Character.hide(characters.Protagonist); 
+        await ƒS.update(); 
     }
 }

@@ -326,22 +326,26 @@ var AMurderMystery;
                 T03: "Ich denke, ich geh jetzt besser. "
             }
         };
-        AMurderMystery.characters.Protagonist.name = AMurderMystery.dataForSave.nameProtagonist;
-        await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.Office);
-        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.neutral, AMurderMystery.ƒS.positionPercent(10, 100));
-        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
-        await AMurderMystery.ƒS.update();
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T00);
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T01);
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T01);
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T02);
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T02);
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T03);
-        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
-        await AMurderMystery.ƒS.Character.animate(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.AnimationLeveToRight());
-        await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T03);
-        AMurderMystery.dataForSave.pointsAsh -= 100;
+        if (AMurderMystery.dataForSave.bonusScene) {
+            AMurderMystery.characters.Protagonist.name = AMurderMystery.dataForSave.nameProtagonist;
+            await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.Office);
+            await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.neutral, AMurderMystery.ƒS.positionPercent(10, 100));
+            await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
+            await AMurderMystery.ƒS.update();
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T00);
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T01);
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T01);
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T02);
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T02);
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T03);
+            await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
+            await AMurderMystery.ƒS.Character.animate(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.AnimationLeveToRight());
+            await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T03);
+            AMurderMystery.dataForSave.pointsAsh -= 100;
+            await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Protagonist);
+            await AMurderMystery.ƒS.update();
+        }
     }
     AMurderMystery.SceneBonus = SceneBonus;
 })(AMurderMystery || (AMurderMystery = {}));
@@ -440,7 +444,6 @@ var AMurderMystery;
 var AMurderMystery;
 (function (AMurderMystery) {
     async function Scene1() {
-        console.log("FudgeStory Template Scene1 starting");
         let text = {
             narrator: {
                 T00: "Willkommen zu A Murder Mystery! Bevor wir anfangen können, gib bitte hier deinen Namen ein:    "
@@ -479,14 +482,15 @@ var AMurderMystery;
         };
         AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.clock, 0.2, 10, true);
         await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.LivingRoom);
-        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.happy, AMurderMystery.ƒS.positionPercent(10, 100));
-        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.happy, AMurderMystery.ƒS.positionPercent(80, 100));
-        await AMurderMystery.ƒS.update(AMurderMystery.transition.transition2.duration, AMurderMystery.transition.transition2.alpha, AMurderMystery.transition.transition3.edge);
+        await AMurderMystery.ƒS.update(AMurderMystery.transition.transition2.duration, AMurderMystery.transition.transition2.alpha, AMurderMystery.transition.transition2.edge);
         AMurderMystery.ƒS.Speech.show();
         await AMurderMystery.ƒS.Speech.tell("Narrator", text.narrator.T00, false);
-        //ƒS.Speech.tell("", ""); 
         AMurderMystery.dataForSave.nameProtagonist = await AMurderMystery.ƒS.Speech.getInput();
         AMurderMystery.characters.Protagonist.name = AMurderMystery.dataForSave.nameProtagonist;
+        console.log(AMurderMystery.characters.Protagonist.name);
+        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.happy, AMurderMystery.ƒS.positionPercent(10, 100));
+        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.happy, AMurderMystery.ƒS.positionPercent(80, 100));
+        await AMurderMystery.ƒS.update();
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T00);
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Ash, text.ash.T01);
@@ -517,8 +521,10 @@ var AMurderMystery;
                 console.log(AMurderMystery.dataForSave.chosenBook);
                 break;
         }
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.clock, 0, 2, true);
-        AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
+        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Protagonist);
+        await AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.clock, 0, 2, true);
+        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
+        await AMurderMystery.ƒS.update();
     }
     AMurderMystery.Scene1 = Scene1;
 })(AMurderMystery || (AMurderMystery = {}));
@@ -528,7 +534,7 @@ var AMurderMystery;
         console.log("FudgeStory Template Scene1 starting");
         let text = {
             protagonist: {
-                T00: "Hmmm… Also als Erstes brauche ich eine Mordwaffe, damit ich weiß, was am Tatort sein muss.",
+                T00: "Ich sollte langsam wirklich mal mein neues Buch planen. Hmmm… Also als Erstes brauche ich eine Mordwaffe, damit ich weiß, was am Tatort sein muss.",
                 T01: "Okay, als Nächstes sollte ich festlegen, wo der Mord stattfindet",
                 T02: "Das … das ist doch der Mord aus meinem Buch? Jemand stellt einen Mord aus meinem Buch dar? Vielleicht sollte ich Ash schreiben?"
             },
@@ -546,7 +552,7 @@ var AMurderMystery;
         await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.happy, AMurderMystery.ƒS.positionPercent(10, 100));
         await AMurderMystery.ƒS.update(AMurderMystery.transition.transition6.duration, AMurderMystery.transition.transition6.alpha, AMurderMystery.transition.transition6.edge);
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
-        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 0.1, 5, true);
+        AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 0.1, 2, true);
         let firstChoice = await AMurderMystery.ƒS.Menu.getInput(text.murderWeaponChoice, "option");
         switch (firstChoice) {
             case text.murderWeaponChoice.knive:
@@ -567,21 +573,11 @@ var AMurderMystery;
                 break;
         }
         AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.laptop, 0, 2, true);
+        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Protagonist);
+        await AMurderMystery.ƒS.update();
     }
     AMurderMystery.Scene2 = Scene2;
 })(AMurderMystery || (AMurderMystery = {}));
-/* export async function Scene2(): ƒS.SceneReturn {
-    console.log("FudgeStory Template Scene1 starting");
-
-    let text = {
-        protagonist: {
-
-        },
-        ash: {
-
-        }
-    }
-} */ 
 var AMurderMystery;
 (function (AMurderMystery) {
     async function Scene2_2() {
@@ -624,10 +620,11 @@ var AMurderMystery;
         }
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
         let thirdChoice = await AMurderMystery.ƒS.Menu.getInput(text.choiceTextAsh, "option");
-        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
         await AMurderMystery.ƒS.update();
         switch (thirdChoice) {
             case text.choiceTextAsh.yes:
+                await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Ash, AMurderMystery.characters.Ash.pose.neutral, AMurderMystery.ƒS.positionPercent(80, 100));
+                await AMurderMystery.ƒS.update();
                 AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 0.5, 10, true);
                 let fourthChoice = await AMurderMystery.ƒS.Menu.getInput(text.textToAsh, "bigOption");
                 switch (fourthChoice) {
@@ -647,13 +644,15 @@ var AMurderMystery;
                         AMurderMystery.dataForSave.pointsAsh -= 100;
                         break;
                 }
+                AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
                 break;
             case text.choiceTextAsh.no:
                 break;
         }
         AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.texting, 0, 2, false);
         console.log(AMurderMystery.dataForSave.pointsAsh);
-        AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Ash);
+        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Protagonist);
+        await AMurderMystery.ƒS.update();
     }
     AMurderMystery.Scene2_2 = Scene2_2;
 })(AMurderMystery || (AMurderMystery = {}));
@@ -669,7 +668,7 @@ var AMurderMystery;
         };
         AMurderMystery.characters.Protagonist.name = AMurderMystery.dataForSave.nameProtagonist;
         await AMurderMystery.ƒS.Location.show(AMurderMystery.locations.Office);
-        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.happy, AMurderMystery.ƒS.positionPercent(10, 100));
+        await AMurderMystery.ƒS.Character.show(AMurderMystery.characters.Protagonist, AMurderMystery.characters.Protagonist.pose.neutral, AMurderMystery.ƒS.positionPercent(10, 100));
         await AMurderMystery.ƒS.update(AMurderMystery.transition.transition6.duration, AMurderMystery.transition.transition6.alpha, AMurderMystery.transition.transition6.edge);
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T00);
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T01);
@@ -678,6 +677,8 @@ var AMurderMystery;
         await AMurderMystery.ƒS.Inventory.open();
         await AMurderMystery.ƒS.update();
         await AMurderMystery.ƒS.Speech.tell(AMurderMystery.characters.Protagonist, text.protagonist.T02);
+        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Protagonist);
+        await AMurderMystery.ƒS.update();
     }
     AMurderMystery.Scene3 = Scene3;
 })(AMurderMystery || (AMurderMystery = {}));
@@ -805,6 +806,8 @@ var AMurderMystery;
                 break;
         }
         await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Officer);
+        await AMurderMystery.ƒS.Character.hide(AMurderMystery.characters.Protagonist);
+        AMurderMystery.ƒS.update();
         AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.crowdTalking2, 0, 2, true);
         AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.computer, 0, 2, true);
         AMurderMystery.ƒS.Sound.fade(AMurderMystery.sound.pencil, 0, 2, true);

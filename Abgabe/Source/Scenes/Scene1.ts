@@ -1,6 +1,5 @@
 namespace AMurderMystery {
     export async function Scene1(): ƒS.SceneReturn {
-        console.log("FudgeStory Template Scene1 starting");
 
         let text = {
             narrator: {
@@ -46,16 +45,18 @@ namespace AMurderMystery {
 
         ƒS.Sound.fade(sound.clock, 0.2, 10, true);
         await ƒS.Location.show(locations.LivingRoom);
-        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
-        await ƒS.Character.show(characters.Ash, characters.Ash.pose.happy, ƒS.positionPercent(80, 100));
-        await ƒS.update(transition.transition2.duration, transition.transition2.alpha, transition.transition3.edge);
+        await ƒS.update(transition.transition2.duration, transition.transition2.alpha, transition.transition2.edge);
 
         ƒS.Speech.show();
 
         await ƒS.Speech.tell("Narrator", text.narrator.T00, false); 
-        //ƒS.Speech.tell("", ""); 
         dataForSave.nameProtagonist = await ƒS.Speech.getInput();
         characters.Protagonist.name = dataForSave.nameProtagonist;
+        console.log(characters.Protagonist.name); 
+        
+        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100)); 
+        await ƒS.Character.show(characters.Ash, characters.Ash.pose.happy, ƒS.positionPercent(80, 100));
+        await ƒS.update(); 
 
 
         await ƒS.Speech.tell(characters.Ash, text.ash.T00);
@@ -91,9 +92,11 @@ namespace AMurderMystery {
                 console.log(dataForSave.chosenBook);
                 break;
         }
-
-        ƒS.Sound.fade(sound.clock, 0, 2, true);
-        ƒS.Character.hide(characters.Ash);
+        
+        await ƒS.Character.hide(characters.Protagonist); 
+        await ƒS.Sound.fade(sound.clock, 0, 2, true);
+        await ƒS.Character.hide(characters.Ash);
+        await ƒS.update(); 
 
     }
 }

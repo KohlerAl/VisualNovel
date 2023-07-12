@@ -168,10 +168,10 @@ namespace AMurderMystery {
     ƒS.Speech.hide(); 
     //Szenen aufrufen bezogen auf die .TS Datei
     let scenes: ƒS.Scenes = [
-      { id:"scene1",scene: Scene1, name: "Scene1" }, 
+      { id:"scene1",scene: Scene1, name: "Scene1" },
       { id:"scene2",scene: Scene2, name: "Scene2" },
       { id:"scene2_2",scene: Scene2_2, name: "Scene2_2" },
-      { id:"scene3",scene: Scene3, name: "Scene3" },
+      { id:"scene3",scene: Scene3, name: "Scene3" }, 
       { id:"scene4",scene: Scene4, name: "Scene4" },
       { id:"sceneBonus",scene: SceneBonus, name: "SceneBonus" }, 
       { id:"scene5",scene: Scene5, name: "Scene5" },

@@ -4,7 +4,7 @@ namespace AMurderMystery {
 
         let text = {
             protagonist: {
-                T00: "Hmmm… Also als Erstes brauche ich eine Mordwaffe, damit ich weiß, was am Tatort sein muss.",
+                T00: "Ich sollte langsam wirklich mal mein neues Buch planen. Hmmm… Also als Erstes brauche ich eine Mordwaffe, damit ich weiß, was am Tatort sein muss.",
                 T01: "Okay, als Nächstes sollte ich festlegen, wo der Mord stattfindet",
                 T02: "Das … das ist doch der Mord aus meinem Buch? Jemand stellt einen Mord aus meinem Buch dar? Vielleicht sollte ich Ash schreiben?"
             },
@@ -26,7 +26,7 @@ namespace AMurderMystery {
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
-        ƒS.Sound.fade(sound.laptop, 0.1, 5, true);
+        ƒS.Sound.fade(sound.laptop, 0.1, 2, true);
         let firstChoice = await ƒS.Menu.getInput(text.murderWeaponChoice, "option");
         switch (firstChoice) {
             case text.murderWeaponChoice.knive:
@@ -50,20 +50,7 @@ namespace AMurderMystery {
                 break;
         }
         ƒS.Sound.fade(sound.laptop, 0, 2, true);
+        await ƒS.Character.hide(characters.Protagonist); 
+        await ƒS.update(); 
     }
 }
-
-
-
-/* export async function Scene2(): ƒS.SceneReturn {
-    console.log("FudgeStory Template Scene1 starting");
-
-    let text = {
-        protagonist: {
-
-        },
-        ash: {
-
-        }
-    }
-} */

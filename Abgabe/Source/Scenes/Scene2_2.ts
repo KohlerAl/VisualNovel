@@ -28,8 +28,8 @@ namespace AMurderMystery {
         }
 
 
-        characters.Protagonist.name = dataForSave.nameProtagonist; 
-        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100)); 
+        characters.Protagonist.name = dataForSave.nameProtagonist;
+        await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100));
         await ƒS.Location.show(locations.Phone);
         await ƒS.update(transition.transition1.duration, transition.transition1.alpha, transition.transition1.edge);
 
@@ -47,13 +47,15 @@ namespace AMurderMystery {
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
 
-        
+
         let thirdChoice = await ƒS.Menu.getInput(text.choiceTextAsh, "option");
-        await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100)); 
         await ƒS.update();
-        
+
         switch (thirdChoice) {
             case text.choiceTextAsh.yes:
+
+                await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100));
+                await ƒS.update(); 
                 ƒS.Sound.fade(sound.texting, 0.5, 10, true);
                 let fourthChoice = await ƒS.Menu.getInput(text.textToAsh, "bigOption");
                 switch (fourthChoice) {
@@ -74,7 +76,11 @@ namespace AMurderMystery {
                         await ƒS.Speech.tell(characters.Ash, text.ashAnswers.accusingAnswer);
                         dataForSave.pointsAsh -= 100;
                         break;
+
+
                 }
+
+                ƒS.Character.hide(characters.Ash)
 
                 break;
 
@@ -82,7 +88,8 @@ namespace AMurderMystery {
                 break;
         }
         ƒS.Sound.fade(sound.texting, 0, 2, false);
-        console.log(dataForSave.pointsAsh); 
-        ƒS.Character.hide(characters.Ash)
+        console.log(dataForSave.pointsAsh);
+        await ƒS.Character.hide(characters.Protagonist); 
+        await ƒS.update(); 
     }
 }

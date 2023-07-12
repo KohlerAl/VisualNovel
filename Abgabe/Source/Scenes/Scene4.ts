@@ -134,6 +134,8 @@ namespace AMurderMystery {
         }
 
         await ƒS.Character.hide(characters.Officer); 
+        await ƒS.Character.hide(characters.Protagonist); 
+        ƒS.update(); 
         ƒS.Sound.fade(sound.crowdTalking2, 0, 2, true);
         ƒS.Sound.fade(sound.computer, 0, 2, true);
         ƒS.Sound.fade(sound.pencil, 0, 2, true); 
