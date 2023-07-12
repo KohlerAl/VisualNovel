@@ -48,6 +48,11 @@ namespace AMurderMystery {
             await ƒS.Speech.tell(characters.Ash, text.ash.T03);
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T03);
             await ƒS.Speech.tell(characters.Ash, text.ash.T04);
+
+            await ƒS.Character.hide(characters.Ash);
+            await ƒS.Character.hide(characters.Protagonist);
+            await ƒS.Speech.hide();
+            await ƒS.update(); 
         }
 
         else if (dataForSave.ending2) {
@@ -57,6 +62,11 @@ namespace AMurderMystery {
 
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T04);
             await ƒS.Speech.tell(characters.Ash, text.ash.T05);
+
+            await ƒS.Character.hide(characters.Ash);
+            await ƒS.Character.hide(characters.Protagonist);
+            await ƒS.Speech.hide();
+            await ƒS.update(); 
         }
         else if (dataForSave.ending3) {
             await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100));
@@ -65,8 +75,12 @@ namespace AMurderMystery {
 
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T05);
             await ƒS.Speech.tell(characters.Ash, text.ash.T05);
+            await ƒS.Character.hide(characters.Ash);
+            await ƒS.Character.hide(characters.Protagonist);
+            await ƒS.Speech.hide();
+            await ƒS.update(); 
 
-            await ƒS.Character.animate(characters.Protagonist, characters.Protagonist.pose.neutral, AnimationLeveToRight()); 
+            await ƒS.Character.animate(characters.Protagonist, characters.Protagonist.pose.neutral, AnimationLeveToRight());
         }
         else if (dataForSave.ending4) {
             await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100));
@@ -74,10 +88,12 @@ namespace AMurderMystery {
             await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
 
             await ƒS.Speech.tell(characters.Officer, text.ermittler.T00);
+            await ƒS.Character.hide(characters.Officer);
+            await ƒS.Character.hide(characters.Protagonist);
+            await ƒS.Speech.hide();
+            await ƒS.update(); 
         }
 
-        await ƒS.Character.hide(characters.Ash);
-        await ƒS.Character.hide(characters.Protagonist);
-        await ƒS.Speech.hide();
+
     }
 }

@@ -51,7 +51,7 @@ namespace AMurderMystery {
         }
         
         characters.Protagonist.name = dataForSave.nameProtagonist; 
-        ƒS.Sound.fade(sound.clock, 10, 800, true);
+        ƒS.Sound.fade(sound.clock, 0.2, 10, true);
         await ƒS.Location.show(locations.LivingRoom);
         console.log(dataForSave.pointsAsh);
         switch (dataForSave.pointsAsh) {
@@ -117,6 +117,6 @@ namespace AMurderMystery {
         }
 
         
-        ƒS.Sound.fade(sound.clock, 800, 0, true);
+        ƒS.Sound.fade(sound.clock, 0, 2, true);
     }
 }

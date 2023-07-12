@@ -22,32 +22,32 @@ namespace AMurderMystery {
 
   export let transition = {
     transition1: {
-      duration: 1,   //duration in seconds
+      duration: 3,   //duration in seconds
       alpha: "Images/Transitions/t1.jpg",      //path to image
       edge: 1       //hardness of transition
     },
     transition2: {
-      duration: 1,
+      duration: 3,
       alpha: "Images/Transitions/t2.jpg",
       edge: 1
     },
     transition3: {
-      duration: 1,
+      duration: 3,
       alpha: "Images/Transitions/t3.jpg",
       edge: 1
     },
     transition4: {
-      duration: 1,
+      duration: 3,
       alpha: "Images/Transitions/t4.jpg",
       edge: 1
     },
     transition5: {
-      duration: 1,
+      duration: 3,
       alpha: "Images/Transitions/t5.jpg",
       edge: 1
     },
     transition6: {
-      duration: 1,
+      duration: 3,
       alpha: "Images/Transitions/t6.png",
       edge: 1
     },
@@ -151,7 +151,8 @@ namespace AMurderMystery {
       "Die Transitions stammen aus dem FreeTransitions Ordner, der zu Verfügung gestellt wurde." +
       "<br/>" +
       "Die Soundelemente wurden von https://www.soundjay.com/ und https://freesound.org/ heruntergeladen" +
-      "<br/>"
+      "<br/>" +
+      "Die Schrift ist von https://www.dafont.com/de/vcr-osd-mono.font"
     );
   }
 
@@ -167,8 +168,8 @@ namespace AMurderMystery {
     ƒS.Speech.hide(); 
     //Szenen aufrufen bezogen auf die .TS Datei
     let scenes: ƒS.Scenes = [
-      /* { id:"scene1",scene: Scene1, name: "Scene1" }, */
-      /* { id:"scene2",scene: Scene2, name: "Scene2" }, */
+      { id:"scene1",scene: Scene1, name: "Scene1" }, 
+      { id:"scene2",scene: Scene2, name: "Scene2" },
       { id:"scene2_2",scene: Scene2_2, name: "Scene2_2" },
       { id:"scene3",scene: Scene3, name: "Scene3" },
       { id:"scene4",scene: Scene4, name: "Scene4" },

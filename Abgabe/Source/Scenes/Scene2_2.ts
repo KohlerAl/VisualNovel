@@ -47,13 +47,14 @@ namespace AMurderMystery {
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
 
-        ƒS.Sound.fade(sound.texting, 10, 10, true);
+        
         let thirdChoice = await ƒS.Menu.getInput(text.choiceTextAsh, "option");
         await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100)); 
         await ƒS.update();
         
         switch (thirdChoice) {
             case text.choiceTextAsh.yes:
+                ƒS.Sound.fade(sound.texting, 0.5, 10, true);
                 let fourthChoice = await ƒS.Menu.getInput(text.textToAsh, "bigOption");
                 switch (fourthChoice) {
                     case text.textToAsh.neutral:

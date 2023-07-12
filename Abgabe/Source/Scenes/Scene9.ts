@@ -4,7 +4,7 @@ namespace AMurderMystery {
         let text = {
             protagonist: {
                 T00: "Ich glaube, ich muss langsam einsehen, dass Ash die Mörderin sein könnte. Aber ich hab Angst, einfach zur Polizei zu gehen. Ich will mir erst 1000 % sicher sein. ",
-                T01: "Wenn meine Vermutung stimmt, dann müsste Ash ja noch in der Nähe vom Tatort sein, oder? Oder ich könnte sie direkt konfrontieren. ",
+                T01: "Wenn meine Vermutung stimmt, dann müsste Ash ja noch in der Nähe vom Tatort sein, oder? Oder ich könnte sie direkt konfrontieren. Sollte ich sie konfrontieren?",
 
                 //Confront Ash
                 T02: "Ash? Steckst du hinter all den Morden?",
@@ -56,7 +56,7 @@ namespace AMurderMystery {
             await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100))
             await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
 
-
+            ƒS.Sound.fade(sound.smartphoneRing, 20, 10, false);
             await ƒS.Speech.tell("Phone", text.news.T00);
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01);
@@ -64,7 +64,7 @@ namespace AMurderMystery {
             let confrontAsh = await ƒS.Menu.getInput(text.confrontAsh, "option");
             switch (confrontAsh) {
                 case text.confrontAsh.yes:
-                    ƒS.Sound.fade(sound.clock, 0, 30, true);
+                    ƒS.Sound.fade(sound.clock, 0.5, 5, true);
                     await ƒS.Location.show(locations.LivingRoom);
                     await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100))
                     await ƒS.update();
@@ -77,18 +77,20 @@ namespace AMurderMystery {
                     await ƒS.Speech.tell(characters.Ash, text.ash.T002);
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T06);
 
-                    ƒS.Sound.fade(sound.clock, 30, 0, true);
+                    ƒS.Sound.fade(sound.clock, 0, 2, true);
                     break;  
 
                 case text.confrontAsh.no:
-                    ƒS.Sound.fade(sound.streetAmbiance, 0, 40, true);
+                    ƒS.Sound.fade(sound.streetAmbiance, 0.05, 5, true);
                     switch (dataForSave.bookCrimeScene) {
                         case "Big Ben":
                             await ƒS.Location.show(locations.BigBen);
+                            await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
                             break;
 
                         case "Tower of London":
                             await ƒS.Location.show(locations.TowerOfLondon);
+                            await ƒS.update(transition.transition6.duration, transition.transition6.alpha, transition.transition6.edge);
                             break;
                     }
 
@@ -104,7 +106,7 @@ namespace AMurderMystery {
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T10);
                     await ƒS.Speech.tell(characters.Ash, text.ash.T05);
                     await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T11);
-                    ƒS.Sound.fade(sound.streetAmbiance, 40, 0, true);
+                    ƒS.Sound.fade(sound.streetAmbiance, 0, 2, true);
                     break;
             }
 

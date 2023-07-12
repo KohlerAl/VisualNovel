@@ -7,7 +7,7 @@ namespace AMurderMystery {
                 T01: "Natürlich, aber jeder kann ja die Bücher gelesen haben.",
                 T02: "Ich war gestern bei meinen Freundinnen, die mich ablenken wollten nach dem ersten Mord.",
                 T03: "Das ist richtig. ",
-                T04: "(Im Stillen) Ash war schon wieder unterwegs, und es ist wieder ein Mord passiert. So langsam glaube ich nicht, dass das ein Zufall war. Aber ich will sie nicht einfach so verdächtigen. ",
+                T04: "(Im Stillen) Ash war schon wieder unterwegs, und es ist wieder ein Mord passiert. So langsam glaube ich nicht, dass das ein Zufall war. Aber ich will sie nicht einfach so verdächtigen. Sollte ich dem Ermittler davon erzählen?",
 
                 //Spieler wählt Nein
                 T05: "Wie gesagt, mir fällt niemand ein. Sollte sich das ändern, melde ich mich bei Ihnen.",
@@ -35,9 +35,9 @@ namespace AMurderMystery {
             }
         }
         
-        ƒS.Sound.fade(sound.crowdTalking2, 20, 50, true);
-        ƒS.Sound.fade(sound.computer, 20, 50, true);
-        ƒS.Sound.fade(sound.pencil, 20, 30, true); 
+        ƒS.Sound.fade(sound.crowdTalking2, 0.15, 5, true);
+        ƒS.Sound.fade(sound.computer, 0.1, 5, true);
+        ƒS.Sound.fade(sound.pencil, 0.2, 3, true); 
         characters.Protagonist.name = dataForSave.nameProtagonist; 
         await ƒS.Location.show(locations.PoliceStation);
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100));
@@ -74,8 +74,8 @@ namespace AMurderMystery {
         }
 
         await ƒS.Character.hide(characters.Officer); 
-        ƒS.Sound.fade(sound.crowdTalking2, 50, 0, true);
-        ƒS.Sound.fade(sound.computer, 50, 0, true);
-        ƒS.Sound.fade(sound.pencil, 30, 0, true); 
+        ƒS.Sound.fade(sound.crowdTalking2, 0, 2, true);
+        ƒS.Sound.fade(sound.computer, 0, 2, true);
+        ƒS.Sound.fade(sound.pencil, 0, 2, true); 
     }
 }

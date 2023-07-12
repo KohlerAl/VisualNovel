@@ -48,9 +48,9 @@ namespace AMurderMystery {
             }
         }
         
-        ƒS.Sound.fade(sound.crowdTalking2, 20, 50, true);
-        ƒS.Sound.fade(sound.computer, 20, 50, true);
-        ƒS.Sound.fade(sound.pencil, 20, 30, true); 
+        ƒS.Sound.fade(sound.crowdTalking2, 0.15, 5, true);
+        ƒS.Sound.fade(sound.computer, 0.1, 5, true);
+        ƒS.Sound.fade(sound.pencil, 0.2, 3, true); 
         characters.Protagonist.name = dataForSave.nameProtagonist; 
         await ƒS.Location.show(locations.PoliceStation);
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
@@ -134,8 +134,8 @@ namespace AMurderMystery {
         }
 
         await ƒS.Character.hide(characters.Officer); 
-        ƒS.Sound.fade(sound.crowdTalking2, 50, 0, true);
-        ƒS.Sound.fade(sound.computer, 50, 0, true);
-        ƒS.Sound.fade(sound.pencil, 30, 0, true); 
+        ƒS.Sound.fade(sound.crowdTalking2, 0, 2, true);
+        ƒS.Sound.fade(sound.computer, 0, 2, true);
+        ƒS.Sound.fade(sound.pencil, 0, 2, true); 
     }
 }

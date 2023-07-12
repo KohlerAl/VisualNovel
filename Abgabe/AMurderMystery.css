@@ -111,6 +111,12 @@ dialog[type="splash"] > p {
   margin-left: auto;
 }
 
+input {
+  border: none;
+  color: #fff;
+  background-color: #431C19ff;
+  font-family: pixel;
+}
 
 /***** SPEECH, CONTENT, NAMES *****/
 speech {
@@ -121,7 +127,7 @@ speech {
   color: beige;
   background-color: #5e718d;
   width: 100%;
-  height: 13%;
+  height: 15%;
   padding: 10px;
 }
 

@@ -3,6 +3,7 @@ declare namespace AMurderMystery {
     function AnimationRightToComputer(): ƒS.AnimationDefinition;
     function AnimationComputerToRight(): ƒS.AnimationDefinition;
     function AnimationProtagonistLeave(): ƒS.AnimationDefinition;
+    function AnimationStandStill(): ƒS.AnimationDefinition;
 }
 declare namespace AMurderMystery {
     export import ƒ = FudgeCore;

@@ -26,7 +26,7 @@ namespace AMurderMystery {
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
-        ƒS.Sound.fade(sound.laptop, 10, 20, true);
+        ƒS.Sound.fade(sound.laptop, 0.1, 5, true);
         let firstChoice = await ƒS.Menu.getInput(text.murderWeaponChoice, "option");
         switch (firstChoice) {
             case text.murderWeaponChoice.knive:
@@ -49,7 +49,7 @@ namespace AMurderMystery {
                 dataForSave.bookCrimeScene = text.crimeSceneChoice.tower;
                 break;
         }
-        ƒS.Sound.fade(sound.laptop, 20, 0, true);
+        ƒS.Sound.fade(sound.laptop, 0, 2, true);
     }
 }
 

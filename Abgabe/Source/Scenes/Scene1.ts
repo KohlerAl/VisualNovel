@@ -44,7 +44,7 @@ namespace AMurderMystery {
             }
         }
 
-        ƒS.Sound.fade(sound.clock, 10, 800, true);
+        ƒS.Sound.fade(sound.clock, 0.2, 10, true);
         await ƒS.Location.show(locations.LivingRoom);
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.happy, ƒS.positionPercent(10, 100));
         await ƒS.Character.show(characters.Ash, characters.Ash.pose.happy, ƒS.positionPercent(80, 100));
@@ -92,7 +92,7 @@ namespace AMurderMystery {
                 break;
         }
 
-        ƒS.Sound.fade(sound.clock, 800, 0, true);
+        ƒS.Sound.fade(sound.clock, 0, 2, true);
         ƒS.Character.hide(characters.Ash);
 
     }

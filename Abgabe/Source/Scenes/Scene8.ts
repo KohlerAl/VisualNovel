@@ -27,10 +27,10 @@ namespace AMurderMystery {
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T01);
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02);
 
-            ƒS.Sound.fade(sound.texting, 400, 400, true);
+            ƒS.Sound.fade(sound.texting, 0.5, 5, true);
             await ƒS.Location.show(locations.Phone); 
             await ƒS.Character.show(characters.Ash, characters.Ash.pose.neutral, ƒS.positionPercent(80, 100))
-            await ƒS.update(); 
+            await ƒS.update(transition.transition2.duration, transition.transition2.alpha, transition.transition2.edge); 
             await ƒS.Speech.tell(characters.Ash, text.ash.T00);
             await ƒS.Character.hide(characters.Ash); 
             await ƒS.update(); 
@@ -40,7 +40,7 @@ namespace AMurderMystery {
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T05);
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T06);
 
-            ƒS.Sound.fade(sound.texting, 400, 0, true);
+            ƒS.Sound.fade(sound.texting, 0, 2, true);
         }
 
 

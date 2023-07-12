@@ -16,15 +16,15 @@ namespace AMurderMystery {
                 money: "Geld"
             }
         }
-        
-        characters.Protagonist.name = dataForSave.nameProtagonist; 
+
+        characters.Protagonist.name = dataForSave.nameProtagonist;
         await ƒS.Location.show(locations.Office);
         await ƒS.Character.show(characters.Protagonist, characters.Protagonist.pose.neutral, ƒS.positionPercent(10, 100));
         await ƒS.update(transition.transition4.duration, transition.transition4.alpha, transition.transition4.edge);
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T00);
 
-        ƒS.Sound.fade(sound.laptop, 10, 800, true);
+        ƒS.Sound.fade(sound.laptop, 0.2, 5, true);
         let witness = await ƒS.Menu.getInput(text.choiceWitness, "option");
         switch (witness) {
             case text.choiceWitness.friend:
@@ -42,16 +42,15 @@ namespace AMurderMystery {
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02);
         await ƒS.Character.hide(characters.Protagonist);
+        ƒS.Sound.fade(sound.laptop, 0, 2, true);
         await ƒS.Character.animate(characters.Protagonist, characters.Protagonist.pose.neutral, AnimationProtagonistLeave());
-        await ƒS.Speech.hide();
+        await ƒS.Speech.tell("", ""); 
         await ƒS.Character.animate(characters.Ash, characters.Ash.pose.neutral, AnimationRightToComputer());
+        await ƒS.Character.animate(characters.Ash, characters.Ash.pose.neutral, AnimationStandStill());
+        await ƒS.Character.animate(characters.Ash, characters.Ash.pose.neutral, AnimationComputerToRight());
 
 
-        window.setTimeout(async function () {
-            await ƒS.Character.animate(characters.Ash, characters.Ash.pose.neutral, AnimationComputerToRight());
-        }, 5000);
 
-        ƒS.Sound.fade(sound.laptop, 800, 0, true);
 
     }
 

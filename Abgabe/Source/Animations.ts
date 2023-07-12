@@ -33,4 +33,12 @@ namespace AMurderMystery {
       playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
     };
   }
+  export function AnimationStandStill(): ƒS.AnimationDefinition {
+    return {
+      start: { translation: ƒS.positionPercent(20, 100) },
+      end: { translation: ƒS.positionPercent(20, 100) },
+      duration: 3,
+      playmode: ƒS.ANIMATION_PLAYMODE.PLAYONCE,
+    };
+  }
 }
