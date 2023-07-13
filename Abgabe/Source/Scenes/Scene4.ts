@@ -38,8 +38,8 @@ namespace AMurderMystery {
                 T02: "Rastplatz"
             },
             weaponRitual: {
-                T00: "Messer",
-                right: "Biss",
+                right: "Messer",
+                T01: "Biss",
                 T02: "Schlag"
             },
             tellAboutAsh: {

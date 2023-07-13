@@ -89,7 +89,6 @@ namespace AMurderMystery {
         }
         ƒS.Sound.fade(sound.texting, 0, 2, false);
         console.log(dataForSave.pointsAsh);
-        await ƒS.Character.hide(characters.Protagonist); 
         await ƒS.update(); 
     }
 }

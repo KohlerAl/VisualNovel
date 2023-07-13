@@ -50,7 +50,6 @@ namespace AMurderMystery {
                 break;
         }
         ƒS.Sound.fade(sound.laptop, 0, 2, true);
-        await ƒS.Character.hide(characters.Protagonist); 
         await ƒS.update(); 
     }
 }

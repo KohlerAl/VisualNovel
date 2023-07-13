@@ -118,5 +118,7 @@ namespace AMurderMystery {
 
         
         ƒS.Sound.fade(sound.clock, 0, 2, true);
+        await ƒS.Character.hide(characters.Ash);
+        ƒS.update(); 
     }
 }

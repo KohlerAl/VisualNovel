@@ -93,7 +93,6 @@ namespace AMurderMystery {
                 break;
         }
         
-        await ƒS.Character.hide(characters.Protagonist); 
         await ƒS.Sound.fade(sound.clock, 0, 2, true);
         await ƒS.Character.hide(characters.Ash);
         await ƒS.update(); 

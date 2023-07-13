@@ -110,10 +110,13 @@ namespace AMurderMystery {
                     break;
             }
 
+            await ƒS.Location.show(locations.Phone); 
+            await ƒS.update(); 
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T12);
             await ƒS.Speech.tell(characters.Ash, text.ash.T06);
             await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T13);
             await ƒS.Speech.tell(characters.Ash, text.ash.T07);
+            await ƒS.Speech.tell(characters.Protagonist, "Sollte ich bei Ash bleiben?"); 
 
             let stayWithAsh = await ƒS.Menu.getInput(text.stay, "option");
             if (dataForSave.pointsOfficer > 0) {
@@ -130,6 +133,8 @@ namespace AMurderMystery {
             else {
                 dataForSave.ending4 = true;
             }
+
+            await ƒS.Character.hide(characters.Ash); 
         }
     }
 }

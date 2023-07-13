@@ -25,7 +25,6 @@ namespace AMurderMystery {
 
         await ƒS.Speech.tell(characters.Protagonist, text.protagonist.T02); 
 
-        await ƒS.Character.hide(characters.Protagonist); 
         await ƒS.update(); 
     }
 }
